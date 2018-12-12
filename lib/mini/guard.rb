@@ -52,12 +52,12 @@ module Mini
     class XFile
       attr_reader :path, :size, :last_modified, :associations
     
-      def initialize(path, code:, specs:, views:)
+      def initialize(path, code:, specs:, views:, factories:)
         @path          = path
         stat           = File.stat(path)
         @size          = stat.size
         @last_modified = stat.ctime
-        @associations  = find_associations(code: code, specs: specs, views: views)
+        @associations  = find_associations(code: code, specs: specs, views: views, factories: factories)
       end
     
       def to_s; "file: #{path} size: #{size} last modified: #{last_modified} associations: #{associations}"; end
@@ -73,12 +73,12 @@ module Mini
       def basename;    File.basename(path, ".*"); end
       def view_path;   path.split('/')[2..-2].join('/'); end
     
-      def find_associations(code:, specs:, views:)
+      def find_associations(code:, specs:, views:, factories:)
         if is_view?
           specs.select{|e| e =~ /^spec\/controllers\/#{view_path}/}
         elsif is_code?
           if is_model?
-            specs.select{|e| e =~ /#{basename}/}
+            specs.select{|e| e.split('/')[-1] =~ /#{basename}/}
           else
             specs.select{|e| e =~ /#{basename}_spec/}
           end
@@ -114,11 +114,12 @@ module Mini
     
     class XIndex
       def XIndex.run
-        code  = FileList.new('app/**/*.rb')
-        specs = FileList.new('spec/**/*_spec.rb', 'spec/factories/*.rb')
-        views = FileList.new('app/views/**/*.*')
-        (code + specs + views).collect do |path|
-          XFile.new(path, code: code, specs: specs, views: views)
+        code      = FileList.new('app/**/*.rb')
+        specs     = FileList.new('spec/**/*_spec.rb')
+        views     = FileList.new('app/views/**/*.*')
+        factories = FileList.new('spec/factories/*.rb')
+        (code + specs + views + factories).collect do |path|
+          XFile.new(path, code: code, specs: specs, views: views, factories: factories)
         end
       end
     end
