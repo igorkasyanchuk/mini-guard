@@ -13,7 +13,7 @@ So, with this gem when you are editing:
 | models/user_spec.rb | spec/models/user_spec.rb, specs/controllers/users_controller_spec.rb, specs/controllers/admin/users_controller_spec.rb, spec/helpers/users_helper_spec.rb, spec/helpers/admin/users_helper_spec.rb |
 | controllers/users_controller.rb | specs/controllers/users_controller_spec.rb |
 | controllers/admin/users_controller.rb | specs/controllers/admin/users_controller_spec.rb |
-| helpers/admin/users_controller.rb | specs/helpers/users_helper_spec.rb |
+| helpers/admin/users_controller.rb | specs/helpers/admin/users_helper_spec.rb |
 | specs/helpers/users_helper_spec.rb | specs/helpers/users_helper_spec.rb |
 | specs/models/user_spec.rb | specs/models/user_spec.rb |
 | views/users/index.html.slim | specs/controllers/users_controller_spec.rb |
