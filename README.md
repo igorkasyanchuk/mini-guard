@@ -8,7 +8,7 @@ Imagine that one of the models is "User" model. Also you have a public users_con
 
 So, with this gem when you are editing:
 
-| File | Specs executed |
+| You editing the File | Specs automatically executed |
 |-----|-----------------|
 | models/user_spec.rb | spec/models/user_spec.rb, specs/controllers/users_controller_spec.rb, specs/controllers/admin/users_controller_spec.rb, spec/helpers/users_helper_spec.rb, spec/helpers/admin/users_helper_spec.rb |
 | controllers/users_controller.rb | specs/controllers/users_controller_spec.rb |
