@@ -1,28 +1,42 @@
-# Mini::Guard
+# mini-guard (run appropriate specs while you are codding)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mini/guard`. To experiment with that code, run `bin/console` for an interactive prompt.
+Not a new idea of executing appropriate specs when source code is changed. But in this implementation it's at least can run not only 1 to 1 related spec but also few additional.
 
-TODO: Delete this and the text above, and describe your gem
+For example, you have an average Rails app (with factories, and Rspec). It contains 20 controllers, few namespaces, 15 models, helpers, SLIM views, and 100 specs. 
+
+Imagine that one of the models is "User" model. Also you have a public users_controller, and in admin namespace one more users_controller, plus 2 users_helper.
+
+So, with this gem when you are editing:
+
+| File | Specs executed |
+|-----|-----------------|
+| models/user_spec.rb | spec/models/user_spec.rb, specs/controllers/users_controller_spec.rb, specs/controllers/admin/users_controller_spec.rb, spec/helpers/users_helper_spec.rb, spec/helpers/admin/users_helper_spec.rb |
+| controllers/users_controller.rb | specs/controllers/users_controller_spec.rb |
+| controllers/admin/users_controller.rb | specs/controllers/admin/users_controller_spec.rb |
+| helpers/admin/users_controller.rb | specs/helpers/users_helper_spec.rb |
+| specs/helpers/users_helper_spec.rb | specs/helpers/users_helper_spec.rb |
+| specs/models/user_spec.rb | specs/models/user_spec.rb |
+| views/users/index.html.slim | specs/controllers/users_controller_spec.rb |
+
+
+**Main difference with other gems that when you are making a change to Model it will execute also matched controllers/helpers/workers/etc specs**
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'mini-guard'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install mini-guard
 
 ## Usage
 
-TODO: Write usage instructions here
+In your Rails app execute `mg` or `mini-guard` command.
+
+## TODO
+
+- show in real time process of specs execution
+- support mini_tests and other frameworks
+- add support of Ctrl+C to interrapt specs execution and double Ctrl+C to exit mini-guard
+- specs for gems
+- support non-Rails apps
+- ability to define Rules on what and how execute
 
 ## Development
 
@@ -32,8 +46,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mini-guard.
+Bug reports and pull requests are welcome on GitHub at https://github.com/igorkasyanchuk/mini-guard.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
