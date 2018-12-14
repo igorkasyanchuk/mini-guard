@@ -1,4 +1,4 @@
-# mini-guard (run appropriate specs while you are codding)
+# mini-guard (run appropriate specs while you are coding)
 
 Not a new idea of executing appropriate specs when source code is changed. But in this implementation it's at least can run not only 1 to 1 related spec but also few additional.
 
