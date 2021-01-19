@@ -1,5 +1,7 @@
 # mini-guard (run appropriate specs while you are coding)
 
+[![RailsJazz](https://github.com/igorkasyanchuk/rails_time_travel/blob/main/docs/my_other.svg?raw=true)](https://www.railsjazz.com)
+
 Not a new idea of executing appropriate specs when source code is changed. But in this implementation it's at least can run not only 1 to 1 related spec but also few additional.
 
 For example, you have an average Rails app (with factories, and Rspec). It contains 20 controllers, few namespaces, 15 models, helpers, SLIM views, and 100 specs. 
