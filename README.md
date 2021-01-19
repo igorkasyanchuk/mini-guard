@@ -52,5 +52,5 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/igorka
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-
-[Ruby & Ruby on Rails Documentations](https://www.apiduck.io)
+[<img src="https://github.com/igorkasyanchuk/rails_time_travel/blob/main/docs/more_gems.png?raw=true"
+/>](https://www.railsjazz.com/)
