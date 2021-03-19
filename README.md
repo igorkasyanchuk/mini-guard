@@ -1,6 +1,7 @@
 # mini-guard (run appropriate specs while you are coding)
 
 [![RailsJazz](https://github.com/igorkasyanchuk/rails_time_travel/blob/main/docs/my_other.svg?raw=true)](https://www.railsjazz.com)
+[![https://www.patreon.com/igorkasyanchuk](https://github.com/igorkasyanchuk/rails_time_travel/blob/main/docs/patron.svg?raw=true)](https://www.patreon.com/igorkasyanchuk)
 
 Not a new idea of executing appropriate specs when source code is changed. But in this implementation it's at least can run not only 1 to 1 related spec but also few additional.
 
